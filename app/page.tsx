@@ -8,7 +8,7 @@ export default function Page() {
   const [result, setResult] = useState("");
 
   const handleInputChange = (e: any) => {
-    console.log(e.target.value);
+    console.log("e.target.value", e.target.value);
     setInput(e.target.value);
   };
 
@@ -18,7 +18,18 @@ export default function Page() {
   };
 
   const add = (numbers: string) => {
+    console.log("numbers", numbers);
     if (numbers === "") return 0;
+    if (numbers.includes(",")) {
+      const splitNumber = numbers.split(",");
+      const result = splitNumber.reduce(
+        (acc, number) => acc + parseInt(number),
+        0
+      );
+      console.log("numbers.includes(',')", numbers.split(","));
+      return result;
+    }
+
     return parseInt(input);
   };
   return (
