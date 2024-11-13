@@ -1,10 +1,10 @@
 type InputProps = {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 const Input = ({ onChange }: InputProps) => {
   return (
     <>
-      <input type="text" onChange={onChange}></input>
+      <textarea onChange={onChange}></textarea>
     </>
   );
 };

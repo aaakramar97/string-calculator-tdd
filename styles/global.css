@@ -21,7 +21,7 @@ body {
   height: 100vh;
 }
 
-input {
+textarea {
   color: rgb(34, 34, 34);
   border: 2px solid rgb(51, 12, 205);
   border-radius: 8px;

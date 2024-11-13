@@ -14,18 +14,24 @@ export default function Page() {
       const sum = add(input);
       setResult(sum.toString());
       setError("");
-    } catch (error) {
+    } catch (error: unknown) {
       console.log(error);
       setResult("");
       setError((error as Error).message);
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    setResult("");
+    setError("");
+  };
+
   return (
     <>
       <div className="string-calculator">
         <h1>String Calculator</h1>
-        <Input onChange={(e) => setInput(e.target.value)} />
+        <Input onChange={handleInputChange} />
         <Button name="Calculate" onClick={handleCalculate} />
         <span style={{ minHeight: "20px" }}>{result || error || ""}</span>
       </div>
