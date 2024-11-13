@@ -7,10 +7,16 @@ import { add } from "./utils/stringCalculator";
 export default function Page() {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleCalculate = () => {
-    const sum = add(input);
-    setResult(sum.toString());
+    try {
+      const sum = add(input);
+      setResult(sum.toString());
+      setError("");
+    } catch (error) {
+      setError((error as Error).message);
+    }
   };
 
   return (
@@ -20,6 +26,7 @@ export default function Page() {
         <Input onChange={(e) => setInput(e.target.value)} />
         <Button name="Calculate" onClick={handleCalculate} />
         <p>Result : {result}</p>
+        {error && <p>{error}</p>}
       </div>
     </main>
   );

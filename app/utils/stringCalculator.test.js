@@ -22,3 +22,8 @@ test("returns the sum accepting custom delimiters", () => {
     expect(add("//;\n1;5")).toBe(6);
     expect(add("//;\n1;5;4")).toBe(10);
 })
+
+test("thows an error for negative numbers", () => {
+    expect(() => add("-1")).toThrow("negative numbers not allowed");
+    expect(() => add("-1,5")).toThrow("negative numbers not allowed");
+})
