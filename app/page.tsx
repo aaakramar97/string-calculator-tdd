@@ -15,19 +15,20 @@ export default function Page() {
       setResult(sum.toString());
       setError("");
     } catch (error) {
+      console.log(error);
+      setResult("");
       setError((error as Error).message);
     }
   };
 
   return (
-    <main className="container">
+    <>
       <div className="string-calculator">
         <h1>String Calculator</h1>
         <Input onChange={(e) => setInput(e.target.value)} />
         <Button name="Calculate" onClick={handleCalculate} />
-        <p>Result : {result}</p>
-        {error && <p>{error}</p>}
+        <span style={{ minHeight: "20px" }}>{result || error || ""}</span>
       </div>
-    </main>
+    </>
   );
 }

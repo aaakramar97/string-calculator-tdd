@@ -24,6 +24,6 @@ test("returns the sum accepting custom delimiters", () => {
 })
 
 test("thows an error for negative numbers", () => {
-    expect(() => add("-1")).toThrow("negative numbers not allowed");
-    expect(() => add("-1,5")).toThrow("negative numbers not allowed");
+    expect(() => add("-1")).toThrow("negative numbers not allowed : -1" );
+    expect(() => add("-1,5")).toThrow("negative numbers not allowed : -1");
 })
