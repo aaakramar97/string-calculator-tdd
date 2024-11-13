@@ -1,4 +1,5 @@
 export const add = (numbers) => {
     if (numbers === "") return 0;
-    return parseInt(numbers);
+    const numbersArray = numbers.split(",");
+    return numbersArray.reduce((acc, num) => acc + parseInt(num), 0);
 };
